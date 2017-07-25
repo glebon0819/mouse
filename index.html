@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Caesar Test</title>
+		<script src="environment.js"></script>
+		<script src="mouse.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			
+			$(document).ready(function(){
+				$("#start").click(function(){
+					console.log("started");
+					const mouse = new mouseEntity();
+					mouse.environment = environment;
+					mouse.begin();
+					mouse.move();
+				});
+				$("#stop").click(function(){
+					console.log("stopped");
+				});
+			});
+		</script>
+		<style>
+			#container {
+				width:75%;
+				margin-left: auto;
+    			margin-right: auto;
+			}
+			.center {
+				width:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<h2>This page was designed to test the Mouse class that I made.</h2>
+			<form>
+				<button type="button" id="start">Start Simulation</button>
+				<button type="button" id="stop">Stop Simulation</button>
+			</form>
+			
+		</div>
+	</body>
+</html>
