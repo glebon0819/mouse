@@ -22,6 +22,7 @@ function mouseEntity(){
 		this.currentX = point[0];
 		this.currentY = point[1];
 		console.log("start point set: (" + this.currentX + ", " + this.currentY + ")");
+		this.memories.push([this.currentX, this.currentY, this.happiness]);
 	}
 	this.move = function(){
 		// choose random direction (up, down, left, right)
@@ -44,13 +45,22 @@ function mouseEntity(){
 			}
 			// check if that is a valid point in the environment
 			for(var i = 0; i < environment.length; i++){
-				var point = environmen[i];
+				var point = environment[i];
 				if(point[0] == coordinates[0] && point[1] == coordinates[1]){
 					pointExists = true;
 				}
 			}
 		}
 		// consult memories
+		if(memories.length > 0){
+			for(var i = 0; i < memories.length; i++){
+				var memory = memories[i];
+				if(memory[0] == coordinates[0] && memory[1] == coordinates[1]){
+					pointExists = true;
+				}
+			}
+		}
+		
 		// set current positions
 		// add memory
 		
